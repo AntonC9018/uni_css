@@ -24,12 +24,9 @@ img:hover {
   background-color: #ebc9c9c7;
   padding: 15px;
   text-align: center;
-  width: 100%;
 }
 
 .container>.cont_mini>.menu {
-  order: 0;
-  flex: 1 0 25%;
   text-align: center;
 }
 
@@ -44,16 +41,12 @@ img:hover {
 }
 
 .container>.cont_mini>.main {
-  order: 1;
-  min-height: 400px;
-  flex: 1 1 45%;
   padding: 10px;
 }
 
+
 .container>.cont_mini>.right {
   background-color: #ebc9c9c7;
-  order: 2;
-  flex: 1 0 25%;
   padding: 15px;
   margin-top: 7px;
 }
@@ -67,7 +60,6 @@ img:hover {
   text-align: center;
   padding: 15px;
   margin-top: 7px;
-  width: 100%;
 }
 
 a:link {
@@ -86,6 +78,32 @@ a:active {
   color: rgba(37, 37, 107, 0.856);
 }
 
+/* IMPORTANT PART */
+
+.container>.head {
+  width: 100%;
+}
+
+.container>.cont_mini>.menu {
+  order: 0;
+  flex: 1 0 25%;
+}
+
+.container>.cont_mini>.main {
+  order: 1;
+  min-height: 400px;
+  flex: 1 1 45%;
+}
+
+.container>.cont_mini>.right {
+  order: 2;
+  flex: 1 0 25%;
+}
+
+.container>.footer {
+  width: 100%;
+}
+
 .container {
   width: 100%;
 }
@@ -98,8 +116,10 @@ a:active {
   overflow: auto;
 }
 
-@media screen and (max-width: 770px) {
-  .container>.cont_mini>.menu, .container>.cont_mini>.main, .container>.cont_mini>.right {
+@media (max-width: 770px) {
+  .container>.cont_mini>.menu, 
+  .container>.cont_mini>.main, 
+  .container>.cont_mini>.right {
     padding: 0;
     margin-left: 7%;
     margin-right: 5%;
