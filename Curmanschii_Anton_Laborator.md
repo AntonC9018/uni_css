@@ -83,12 +83,28 @@ Conceptual, toate liniile se împart în acestă implementare la 12 coloane, iar
 Clasele care conțin `m` se aplică pentru ecrane mici, iar cele fără `m` la celelalte ecrane.
 
 ```html
-<div class="menu col-3 col-m-3"/>
-<div class="main col-6 col-m-9"/>
-<div class="right col-3 col-m-12"/>
+<div class="menu col-3 col-m-3"></div>
+<div class="main col-6 col-m-9"></div>
+<div class="right col-3 col-m-12"></div>
 ```
 
 În CSS clasele cu `m` sunt scrise după un media query pentru lățimi mici, iar celelalte clase se vor aplica în cazul contrar.
 Pentru ecranele cele mai mici în CSS-ul mai există o regulă care setează lățimea la 100%.
 
 Este o abordare mai bună, însă faptul că css nu permite calculări și generarea de așa clase în mod dinamic, stylesheet-ul conține boilerplate-ul și arată prost.
+
+
+## Metoda 2.1.1 (css_RWD21/css/styles)
+
+Flex lucrează în acest caz ca float din punctul Metoda 1.1.
+`flex-basis` setează valoarea inițială a lățimii, `flex-grow` și `flex-shrink` dau coeficiențile expandării și micșorării.
+
+La media query probabil trebuie să fie utilizat `flex-basis: 100%` în loc de `width: 100%` (după opinia mea arată mai bine).
+`width: 100%` nu forțează elementul să ocupe întregul rând, ci doar să nu aibă o lățime mai mică ca cea minimă, ce-i oricum default behavior, deci nu face nimic (și cu și fără `width: 100%` are același comportament).
+
+
+## Metoda 2.1.2 (css_RWD21/css/styles2)
+
+Același lucru, dar după înțelegerea mea făcut incorect.
+A fost utilizat `width` în loc de `flex-basis`.
+

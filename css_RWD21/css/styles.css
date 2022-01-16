@@ -92,7 +92,7 @@ a:active {
 .container>.cont_mini>.main {
   order: 1;
   min-height: 400px;
-  flex: 1 1 45%;
+  flex: 1 1 50%;
 }
 
 .container>.cont_mini>.right {
@@ -123,6 +123,8 @@ a:active {
     padding: 0;
     margin-left: 7%;
     margin-right: 5%;
-    width: 100%;
+    /* width: 100%; */
+    /* flex-basis: 100%; */
+    /* flex: none; */
   }
 }
