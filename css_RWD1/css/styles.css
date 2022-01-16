@@ -24,10 +24,44 @@ img:hover {
   filter: alpha(opacity=100);
 }
 
+
+/* START OF THE ESSENTIAL PART */
 .menu {
   float: left;
   width: 20%;
+}
+
+.main {
+  float: left;
+  width: 60%;
+}
+
+.right {
+  float: left;
+  width: 21%;
+}
+
+/*For mobile phones: */
+@media (max-width:620px) {
+  .menu, .main, .right {
+    width: 100%;
+  }
+}
+/* END OF THE ESSENTIAL PART */
+
+
+.menu {
   text-align: center;
+}
+.main {
+  padding: 0 20px;
+}
+
+.right {
+  background-color: #1e008ac7;
+  text-align: center;
+  padding: 15px;
+  margin-top: 7px;
 }
 
 .menu a {
@@ -39,28 +73,11 @@ img:hover {
   color: rgba(59, 15, 15, 0.678);
 }
 
-.main {
-  float: left;
-  width: 60%;
-  padding: 0 20px;
-}
-
-.right {
-  background-color: #ebc9c9c7;
-  float: left;
-  width: 20%;
-  padding: 15px;
-  margin-top: 7px;
-  text-align: center;
-}
-
 .footer {
   background-color: #ebc9c9c7;
   text-align: center;
   padding: 15px;
   margin-top: 7px;
-  "
-
 }
 
 a:link {
@@ -77,11 +94,4 @@ a:hover {
 
 a:active {
   color: rgba(37, 37, 107, 0.856);
-}
-
-/*For mobile phones: */
-@media only screen and (max-width:620px) {
-  .menu, .main, .right {
-    width: 100%;
-  }
 }

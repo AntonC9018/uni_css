@@ -46,7 +46,6 @@ img:hover {
 .right {
   background-color: #ebc9c9c7;
   float: left;
-  width: 20%;
   padding: 15px;
   margin-top: 7px;
   text-align: center;
@@ -57,8 +56,6 @@ img:hover {
   text-align: center;
   padding: 15px;
   margin-top: 7px;
-  "
-
 }
 
 a:link {
@@ -82,15 +79,15 @@ a:active {
   width: 100%;
 }
 
-@media (min-width: 575px) {
+/* @media (min-width: 575px) {
   .main {
     width: 550px;
     margin-left: auto;
     margin-right: auto;
   }
-}
+} */
 
-@media only screen and (min-width: 600px) {
+@media (min-width: 600px) {
 
   /* для планшета 
 Первая секция страницы растянется на 3 столбца, вторая - на 9 столбцов, а третья вначале – на 2 а потом на все 12 	*/
@@ -143,7 +140,7 @@ a:active {
   }
 }
 
-@media only screen and (min-width: 768px) {
+@media (min-width: 768px) {
 
   /* для дисплея 
 Первый и третий раздел займут по 3 столбца каждый. Средний раздел займет  6 столбцов 	*/
