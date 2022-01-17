@@ -1,40 +1,40 @@
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 body {
-	/*font-family:Comic sans MS;*/
 	font-size: 1.1rem;
-	margin:0;
-	padding:0;
+	margin: 0;
+	padding: 0;
 }
 
-a{
+a {
 	font-size: 1.3rem;
 	transition: color 1s;
 	font-weight: bold;
 }
-.left a{
-	
-}
-a:hover{
+
+a:hover {
 	color: grey;
 	transition: color 1s;
 }
+
 img {
 	max-width: 97%;
 	opacity: 0.7;
-	filter: alpha(opacity=70); 
+	filter: alpha(opacity=70);
 }
+
 img:hover {
 	opacity: 1;
-	filter: alpha(opacity=100); 
+	filter: alpha(opacity=100);
 }
+
 a:visited {
-  color: rgba(128, 128, 128, 0.822);
+	color: rgba(128, 128, 128, 0.822);
 }
 
 
 a:active {
-  color: rgba(37, 37, 107, 0.856);
+	color: rgba(37, 37, 107, 0.856);
 }
