@@ -8,6 +8,16 @@ Tema: **Adaptivitatea cu CSS3, Media Queries**
 
 ## Metoda 1.1 (css_RWD1/css/styles)
 
+
+Elementul `meta name="viewport"` lipsește:
+```html
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
+```
+
+Din această cauză pe ecrane mici apare problema:
+
+![](images/no_meta.png)
+
 ```css
 * {
   box-sizing: border-box;

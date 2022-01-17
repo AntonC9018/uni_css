@@ -1,30 +1,3 @@
-* {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Comic sans MS;
-  margin: 0;
-  padding: 0;
-}
-
-.menu a {
-  padding: 8px;
-  margin-top: 7px;
-  display: block;
-  width: 100%;
-  text-align: center;
-}
-
-a:visited {
-  color: rgba(128, 128, 128, 0.822);
-}
-
-
-a:active {
-  color: rgba(37, 37, 107, 0.856);
-}
-
 img {
   max-width: 97%;
   opacity: 0.7;
