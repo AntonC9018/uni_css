@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div id="app">
+        <div v-for="(item, index) in items" 
+             v-bind:key="item.title"
+             class="bg-sky-600"
+             :class=" 
+                (index % 2 == 1) 
+                    ? 'hover:bg-sky-700' 
+                    : 'hover:bg-sky-900' ">
+            <div>
+                <img :src="item.picture"
+                     :alt="item.title"
+                     class="w-48 
+                            hover:outline-none 
+                            hover:ring 
+                            hover:ring-violet-300" />
+            </div>
+            
+            <div class="text-2xl 
+                        font-semibold 
+                        italic 
+                        text-center 
+                        text-slate-900">
+
+                <div class="relative 
+                            font-medium 
+                            text-black">
+
+                    <span class="block 
+                                 absolute 
+                                 -inset-1 
+                                 -skew-y-3 
+                                 bg-pink-500" 
+                          aria-hidden="true">
+                    </span>
+                    <span class="relative">
+                        {{ item.title }}
+                    </span>
+                </div>
+                
+                <p>{{ item.text }}</p>
+            </div>
+        </div>
+    </div>
+    <script src="data.js"></script>
+</body>
+</html>
