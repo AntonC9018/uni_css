@@ -108,3 +108,10 @@ La media query probabil trebuie să fie utilizat `flex-basis: 100%` în loc de `
 Același lucru, dar după înțelegerea mea făcut incorect.
 A fost utilizat `width` în loc de `flex-basis`.
 
+
+## Metoda 2.2 (css_RWD22/css/styles)
+
+Aranjarea elementelor este realizată utilizând `display: grid`.
+Fiecare element este dat un nume cu proprietatea `grid-area: menu`.
+În stilurile containerului, elementele sunt aranjate vizual conform `grid-template-areas`.
+`grid-template-columns` distribuie spațiul între coloanele.
