@@ -15,25 +15,29 @@
                 flex-wrap
                 justify-center
                 content-center
-                p-1">
+                
+                lg:mr-10
+                lg:ml-10
+
+                md:mr-5
+                md:ml-5">
 
         <div v-for="(item, index) in items" 
              v-bind:key="item.title"
-             class="grow 
-                    shrink
-                    rounded-lg"
+             class="grow
+                    drop-shadow-lg"
              :class="itemTierToWidthClass(item.widthTier)">
 
             <div class="h-full
                         w-full
-                        p-1 
-                        rounded-lg">
+                        p-1">
 
                 <div class="h-full
                             w-full
                             
                             bg-sky-600 
-                            rounded-lg
+
+                            rounded-xl          -- hack
 
                             flex
                             flex-col
@@ -41,22 +45,46 @@
                             content-center"
                             
                      :class="">
+                     
+                     <div class="w-full 
+                                flex 
+                                pt-2
+                                pb-2
+                                
+                                grow
 
-                    <div class="w-full h-full flex content-center justify-center">
+                                justify-center
+                                bg-lime-600
+                                rounded-tl-lg
+                                rounded-tr-lg"> <!-- for this (it spills over 1 pixel if set to overfow:hidden and ) -->
 
                         <img :src="item.picture"
                              :alt="item.title"
-                             class="rounded-lg max-w-md"/>
+                             class="object-none"/>
                     </div>
                     
                     <div class="text-2xl 
-                                p-5">
+                                p-5
+                                bg-slate-400
+                                bg-clip-content
+                                rounded-bl-lg
+                                rounded-br-lg">
 
-                        <div class="font-large
+                        <div class="relative
+                                    font-large
                                     font-semibold 
                                     text-black
                                     italic">
-                            <span>
+
+                            <span class="block 
+                                         absolute 
+                                         -inset-1 
+                                         -skew-y-0.5 
+                                         bg-red-500" 
+                                  aria-hidden="true">
+                            </span>
+
+                            <span class="relative">
                                 {{ item.title }}
                             </span>
                         </div>

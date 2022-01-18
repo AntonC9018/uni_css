@@ -1,5 +1,21 @@
 "use strict";
 
+
+const NumRandomItems = 25;
+
+const TierPortions = [
+    { small: 4, medium: 1, large: 1 },
+    { small: 4, medium: 2, large: 1 },
+    { small: 4, medium: 3, large: 2 },
+    { small: 4, medium: 4, large: 2 },
+];
+
+const TierMaxWidth = 4;
+
+const PictureWidth  = 400;
+const PictureHeight = 200;
+
+
 function getRandomItems(numItems)
 {
     let result = [];
@@ -78,14 +94,12 @@ function getRandomItems(numItems)
         let titleStartIndex = i % titlesStart.length;
         let titleEndIndex = i % titlesEnd.length;
         
-        let width = 200;
-        let height = 300;
         let randomImageId = i % 500; 
         
         function more(text0, indexOffset)
         {
             if (Math.random() > 0.5)
-            return text0 + loremIpsum[(loremIndex + indexOffset) % loremIpsum.length]
+                return text0 + " " + loremIpsum[(loremIndex + indexOffset) % loremIpsum.length]
             return text0;
         }
 
@@ -98,20 +112,12 @@ function getRandomItems(numItems)
             title: titlesStart[titleStartIndex] + " " + titlesEnd[titleEndIndex],
             text: text,
             widthTier: getWidthTier(text.length),
-            picture: `https://picsum.photos/id/${randomImageId}/${width}/${height}`
+            picture: `https://picsum.photos/id/${randomImageId}/${PictureWidth}/${PictureHeight}`
         }
     }
     return result;
 }
 
-const numRandomItems = 3;
-
-const tierPortions = [
-    { small: 4, medium: 1, large: 1 },
-    { small: 4, medium: 2, large: 1 },
-    { small: 4, medium: 3, large: 2 },
-    { small: 4, medium: 4, large: 2 },
-];
 
 var app = new Vue(
 {
@@ -119,43 +125,45 @@ var app = new Vue(
     data:
     {
         items: [
-            {
-                title: "My cat",
-                text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sit amet dolor commodo, malesuada diam quis, commodo est. Nunc non nisi dolor. Ut lectus tortor, congue vel ex sit amet, semper dignissim nibh.",
-                picture: "../images/cat1.jpg",
-                widthTier: 0,
-            },
-            {
-                title: "Page from question 1",
-                text: "Morbi accumsan, risus eget laoreet luctus, lorem dui porta augue, commodo maximus erat nisl eu augue. Fusce bibendum cursus augue, ut egestas velit mollis gravida. Pellentesque at justo sem. Suspendisse interdum sodales porta. Donec massa est, porttitor id velit at, ultrices hendrerit est. Suspendisse volutpat faucibus tellus, ut convallis lacus. Mauris faucibus elementum finibus.",
-                picture: "../images/page.png",
-                widthTier: 1,
-            },
-            {
-                title: "Weather today",
-                text: "Donec sollicitudin ullamcorper ligula, pharetra ullamcorper mi tristique et. Vestibulum eget fermentum sapien. Ut condimentum nec turpis mollis tristique. Nam lorem diam, ultrices eu volutpat id, iaculis eu dui. Sed ut felis elit. Cras et tortor in quam elementum commodo. Nunc semper molestie ante eu dignissim. Praesent auctor elit eu enim aliquet molestie. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis lorem at arcu tempus mattis.",
-                picture: "../images/weather.jpg",
-                widthTier: 2,
-            },
-            {
-                title: "My doggo",
-                text: "Maecenas tincidunt felis dapibus velit viverra, eget cursus dolor dignissim. Ut et nulla non mi tincidunt maximus a sit amet eros. Maecenas congue lorem placerat, aliquam urna eu, ornare lacus. Vivamus maximus metus turpis. Nullam a ex accumsan, imperdiet odio nec, dictum erat. Morbi quis finibus erat, nec congue sem.",
-                picture: "https://picsum.photos/id/200/200/300",
-                widthTier: 3,
-            },
-        ].concat(getRandomItems(numRandomItems))
+            // {
+            //     title: "My cat",
+            //     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sit amet dolor commodo, malesuada diam quis, commodo est. Nunc non nisi dolor. Ut lectus tortor, congue vel ex sit amet, semper dignissim nibh.",
+            //     picture: "../images/cat1.jpg",
+            //     widthTier: 0,
+            // },
+            // {
+            //     title: "Page from question 1",
+            //     text: "Morbi accumsan, risus eget laoreet luctus, lorem dui porta augue, commodo maximus erat nisl eu augue. Fusce bibendum cursus augue, ut egestas velit mollis gravida. Pellentesque at justo sem. Suspendisse interdum sodales porta. Donec massa est, porttitor id velit at, ultrices hendrerit est. Suspendisse volutpat faucibus tellus, ut convallis lacus. Mauris faucibus elementum finibus.",
+            //     picture: "../images/page.png",
+            //     widthTier: 1,
+            // },
+            // {
+            //     title: "Weather today",
+            //     text: "Donec sollicitudin ullamcorper ligula, pharetra ullamcorper mi tristique et. Vestibulum eget fermentum sapien. Ut condimentum nec turpis mollis tristique. Nam lorem diam, ultrices eu volutpat id, iaculis eu dui. Sed ut felis elit. Cras et tortor in quam elementum commodo. Nunc semper molestie ante eu dignissim. Praesent auctor elit eu enim aliquet molestie. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis lorem at arcu tempus mattis.",
+            //     picture: "../images/weather.jpg",
+            //     widthTier: 2,
+            // },
+            // {
+            //     title: "My doggo",
+            //     text: "Maecenas tincidunt felis dapibus velit viverra, eget cursus dolor dignissim. Ut et nulla non mi tincidunt maximus a sit amet eros. Maecenas congue lorem placerat, aliquam urna eu, ornare lacus. Vivamus maximus metus turpis. Nullam a ex accumsan, imperdiet odio nec, dictum erat. Morbi quis finibus erat, nec congue sem.",
+            //     picture: "https://picsum.photos/id/200/200/300",
+            //     widthTier: 3,
+            // },
+        ].concat(getRandomItems(NumRandomItems))
     },
     methods:
     {
         itemTierToWidthPortion: function(tier)
         {
-            return tierPortions[tier];
+            return TierPortions[tier];
         },
 
         itemTierToWidthClass: function(tier)
         {
             let t = this.itemTierToWidthPortion(tier);
-            return `sm:basis-${t.small}/4 md:basis-${t.medium}/4 lg:basis-${t.large}/4`;
+            return `sm:basis-${t.small}/${TierMaxWidth} 
+                    md:basis-${t.medium}/${TierMaxWidth} 
+                    lg:basis-${t.large}/${TierMaxWidth}`;
         },
 
         itemWidthToFlexDirection: function(tier)
@@ -167,7 +175,7 @@ var app = new Vue(
                 return isSmall ? "col" : "row";
             }
             
-            // width of 1/4 means top to down, so flex-col
+            // width of 1/tierMaxWidth means top to down, so flex-col
             return `sm:flex-${getDirection(t.small  == 1)}
                     md:flex-${getDirection(t.medium == 1)}
                     lg:flex-${getDirection(t.large  == 1)}`;
