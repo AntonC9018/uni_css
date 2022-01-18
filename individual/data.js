@@ -98,14 +98,14 @@ function getRandomItems(numItems)
         
         let randomImageId = i % 500; 
         
+        let loremIndex = i % loremIpsum.length;
         function more(text0, indexOffset)
         {
             if (Math.random() > 0.5)
-                return text0 + " " + loremIpsum[(loremIndex + indexOffset) % loremIpsum.length]
+                return text0 + " " + loremIpsum[(loremIndex + indexOffset) % loremIpsum.length]ж
             return text0;
         }
 
-        let loremIndex = i % loremIpsum.length;
         let text = loremIpsum[loremIndex];
         text = more(text, 1);
         text = more(text, 2);
