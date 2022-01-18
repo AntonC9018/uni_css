@@ -60,7 +60,7 @@ function getRandomItems(numItems)
 
     function getWidthTier(textLength)
     {
-        // tier 0 -- 0   .. 50
+        // tier 0 -- 0   .. 100
         // tier 1 -- 100 .. 200
         // tier 2 -- 200 .. 500
         // tier 3 -- > 500
@@ -68,9 +68,9 @@ function getRandomItems(numItems)
         for (let i = 0; i < tiers.length; i++)
         {
             if (textLength < tiers[i])
-                return i + 1;
+                return i;
         }
-        return tiers.length + 1;
+        return tiers.length;
     }
 
     for (let i = 0; i < numItems; i++)
@@ -104,7 +104,14 @@ function getRandomItems(numItems)
     return result;
 }
 
-const numRandomItems = 10;
+const numRandomItems = 3;
+
+const tierPortions = [
+    { small: 4, medium: 1, large: 1 },
+    { small: 4, medium: 2, large: 1 },
+    { small: 4, medium: 3, large: 2 },
+    { small: 4, medium: 4, large: 2 },
+];
 
 var app = new Vue(
 {
@@ -140,6 +147,30 @@ var app = new Vue(
     },
     methods:
     {
-        
+        itemTierToWidthPortion: function(tier)
+        {
+            return tierPortions[tier];
+        },
+
+        itemTierToWidthClass: function(tier)
+        {
+            let t = this.itemTierToWidthPortion(tier);
+            return `sm:basis-${t.small}/4 md:basis-${t.medium}/4 lg:basis-${t.large}/4`;
+        },
+
+        itemWidthToFlexDirection: function(tier)
+        {
+            let t = this.itemTierToWidthPortion(tier);
+
+            function getDirection(isSmall)
+            {
+                return isSmall ? "col" : "row";
+            }
+            
+            // width of 1/4 means top to down, so flex-col
+            return `sm:flex-${getDirection(t.small  == 1)}
+                    md:flex-${getDirection(t.medium == 1)}
+                    lg:flex-${getDirection(t.large  == 1)}`;
+        }
     }
 });
