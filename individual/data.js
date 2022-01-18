@@ -102,7 +102,7 @@ function getRandomItems(numItems)
         function more(text0, indexOffset)
         {
             if (Math.random() > 0.5)
-                return text0 + " " + loremIpsum[(loremIndex + indexOffset) % loremIpsum.length]ж
+                return text0 + " " + loremIpsum[(loremIndex + indexOffset) % loremIpsum.length];
             return text0;
         }
 
