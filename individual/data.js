@@ -16,6 +16,13 @@ const PictureWidth  = 400;
 const PictureHeight = 200;
 
 
+// tier 0 -- 0   .. 100
+// tier 1 -- 100 .. 200
+// tier 2 -- 200 .. 500
+// tier 3 -- > 500
+const StringLengthWidthTierBreakpoints = [100, 200, 500];
+
+
 function getRandomItems(numItems)
 {
     let result = [];
@@ -76,17 +83,12 @@ function getRandomItems(numItems)
 
     function getWidthTier(textLength)
     {
-        // tier 0 -- 0   .. 100
-        // tier 1 -- 100 .. 200
-        // tier 2 -- 200 .. 500
-        // tier 3 -- > 500
-        let tiers = [100, 200, 500];
-        for (let i = 0; i < tiers.length; i++)
+        for (let i = 0; i < StringLengthWidthTierBreakpoints.length; i++)
         {
-            if (textLength < tiers[i])
+            if (textLength < StringLengthWidthTierBreakpoints[i])
                 return i;
         }
-        return tiers.length;
+        return StringLengthWidthTierBreakpoints.length;
     }
 
     for (let i = 0; i < numItems; i++)
