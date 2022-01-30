@@ -93,7 +93,7 @@ function getRandomItems(numItems)
 ```
 
 Cum se poate vedea, fiecare item este atribuit un tir (indice) aleator, conform lungimii textului.
-În continuare, tirul acesta se va folosi pentru a determina cât spațiu un anumit item va lua în viewport.
+În continuare, tirul acesta se va folosi pentru a determina cât spațiu un anumit item va ocupa în viewport.
 
 
 ## Explicații layout-ului itemilor
@@ -109,7 +109,7 @@ Urmează un exemplu, unde itemul din stângă ocupă $ \frac{3}{4} $ de viewport
 
 ![small](images/items_3-4_and_1-4.png)
 
-Mai însă avem o restricție referitor la layout: dacă un grup de itemi ce se află într-o singură linie nu cer întregul spațiu ce rămâne, dar încă un item în plus nu se încape, dorim ca spațiul ce rămâne să fie subdivizat egal între acele itemi existente.
+Mai însă avem o restricție referitor la layout: dacă un grup de itemi ce se află într-o singură linie nu cere întregul spațiu ce rămâne, dar încă un item în plus nu se încape, dorim ca spațiul ce rămâne să fie subdivizat egal între acei itemi existenți.
 Exemplu: avem un item ce se află primul într-o linie ce ocupă 3 sloturi, și mai avem un item ce ocupă 2 sloturi. Deoarece al doilea item nu se încape, primul item va fi intins să ocupe întreaga linie.
 Încă un exemplu: avem 3 itemi care ocupă câte un slot, și mai avem unul ce ocupă 2. Deoarecele ultimul item nu se încape, spațiul acelui singur slot ce rămâne va fi subdivizat între cele 3 itemi, astfel fiecare din ele va ocupa câte o treime din spațiul liniei.
 
@@ -124,12 +124,12 @@ Atingem cerințele enumărate în următorul mod:
 
 ## Adaptivitatea
 
-În secția anterioară am atins responsivitatea (adică faptul că elementele un procent anumit de spațiu), dar nu adaptivitatea (că layout-ul se schimbă într-un mod în dependența de mărimea ecranului).
+În secția anterioară am atins responsivitatea (adică faptul că elementele ocupă un procent anumit de spațiu), dar nu adaptivitatea (că layout-ul se schimbă într-un mod în dependența de mărimea ecranului).
 Adaptivitatea se obține prin folosirea lor Media Query.
-Ideea este că fiecare item va ocupa o fracție variabilă din spațiuul viewport-ului în funcția mărimii ecranului.
+Ideea este că fiecare item va ocupa o fracție variabilă din spațiul viewport-ului în funcția mărimii ecranului.
 
 Aceasta s-a atins prin setarea lui `flex-basis` la valori diferite în funcția de mărimea ecranului.
-La fiecare item se aplic clasele CSS definite de Tailwind care dau acea valoare `flex-basis` ce se schimbă pe ecrane de mărimi diferite.
+La fiecare item se aplică clasele CSS definite de Tailwind care dau acea valoare `flex-basis` ce se schimbă pe ecrane de mărimi diferite.
 
 În codul de mai jos, am tabloul cu patru elemente care este indexat cu acele tiruri prescrise fiecărui element, menționate în punctul [despre generare a datelor](#generarea-datelor).
 `TierMaxWidth` este acea constantă arbitrară de 4 care indică numărul total de sloturi.
@@ -245,9 +245,9 @@ Div-ul este și el flexbox, deoarece mai departe aliniem imaginea și textul în
             drop-shadow-lg">
 ```
 
-Acest div conține încă două divuri, unul pentru imagine, unul pentru text.
+Acest div conține încă două div-uri, unul pentru imagine, unul pentru text.
 
-Divul pentru imagine este și el flex pentru centrarea imaginii, are o culoare de fundal verde, și colțuri rotunjite.
+Div-ul pentru imagine este și el flex pentru centrarea imaginii, are o culoare de fundal verde.
 Înăuntru se conține imaginea cu clasa `object-none`.
 Această clasă face ca imaginea mereu să rămâne de mărimea sa inițială, iar dacă nu încape în container-ul părinte, să fie cropată egal din toate părțile.
 Atributuri care încep `:` asociează acelui atribut valoarea unei variabile din cod.
@@ -272,7 +272,7 @@ Atributuri care încep `:` asociează acelui atribut valoarea unei variabile din
 
 Design-ul titlului și textului... Nu-i atât de mult de explicat. 
 Doar momentul cu acel span cu poziția absolută, dar aceasta să fiu sincer eu am copiat din documentația și un pic am schimbat.
-În sfârșit, această de fapt face dă un fundal roz care într-un fel iese din container-ul inițial.
+În sfârșit, aceasta de fapt face dă un fundal roz care într-un fel iese din container-ul inițial.
 `skew` de fapt nu este apris (este atât de mic că nici nu-i vizibil), deci puteți de fapt ignora șmecheriile cu acel element absolut cu totul.
 
 ```html
@@ -325,8 +325,8 @@ Deoarece atunci avem un pixel din background-ul copiilor vizibil care totuși ie
 
 ### Hack-ul oribil
 
-Nu putem folosi padding între containeri care conțin itemii, deoarece atunci ei vor putea ocupa mai mult spațiu decât sunt prescriși.
-De exemplu, dacă avem două itemi care să ocupe $ \frac{2}{4} $ trebuie să ocupe o singură linie, dar vor ocupa din cauza padding-ului un pic mai mult, și aceasta ar forța un break nedorit.
+Nu putem folosi margin între containeri care conțin itemii, deoarece atunci ei vor putea ocupa mai mult spațiu decât sunt prescriși.
+De exemplu, dacă avem două itemi care să ocupe $ \frac{2}{4} $ trebuie să ocupe o singură linie, dar vor ocupa din cauza margin-ului un pic mai mult, și aceasta ar forța un break nedorit.
 
 Există două soluții, ambele sunt hack-uri, după opinia mea:
 
